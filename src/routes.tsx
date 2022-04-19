@@ -5,6 +5,7 @@ import Menu from "./containers/menu/menu";
 import Sobre from "./containers/sobre/sobre";
 import PrevisaoTempo from "./containers/previsaoTempo/previsaoTempo";
 import SobreProvider from "./store/sobre/useSobre/sobreProvider";
+import CidadesEstadosProvider from "./store/cidades/useCidadesEstados/cidadesEstadosProvider";
 
 type RoutesType = unknown;
 
@@ -22,7 +23,13 @@ const Routes: React.FC<RoutesType> = ({}) => {
             </SobreProvider>
           )}
         </Stack.Screen>
-        <Stack.Screen name="PrevisaoTempo" component={PrevisaoTempo} />
+        <Stack.Screen name="PrevisaoTempo">
+          {() => (
+            <CidadesEstadosProvider>
+              <PrevisaoTempo />
+            </CidadesEstadosProvider>
+          )}
+        </Stack.Screen>
       </Stack.Navigator>
     </NavigationContainer>
   );

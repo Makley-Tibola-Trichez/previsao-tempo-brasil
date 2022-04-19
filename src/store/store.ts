@@ -1,5 +1,6 @@
 import { configureStore, ThunkAction, Action } from "@reduxjs/toolkit";
 import appSlice from "./app/appSlice";
+import cidadesEstadosSlice from "./cidades/cidadesEstadosSlice";
 import sobreSlice from "./sobre/sobreSlice";
 
 const makeStore = () =>
@@ -7,6 +8,7 @@ const makeStore = () =>
     reducer: {
       App: appSlice.reducer,
       Sobre: sobreSlice.reducer,
+      CidadesEstados: cidadesEstadosSlice.reducer,
     },
   });
 

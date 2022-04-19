@@ -1,11 +1,19 @@
 import { ParseResponse } from "./treatResponse";
 
 export default class Api {
-  static fetchPrevisaoTempo(url: string) {
-    return apiRequest(url);
+  static fetchPrevisaoTempo(geocode: number) {
+    return apiRequest(`${geocode}`);
   }
-  static fetchCidadesBrasil(url: string) {
-    return apiRequest(url);
+  static fetchCidadesEstado(geocode: number) {
+    // TODO: obter cidades do estado selecionado
+    return apiRequest(
+      `https://servicodados.ibge.gov.br/api/v1/localidades/municipios/${geocode}`
+    );
+  }
+  static fetchEstadosBrasil() {
+    return apiRequest(
+      "https://servicodados.ibge.gov.br/api/v1/localidades/estados"
+    );
   }
   static fetchGithubProfile() {
     return apiRequest("https://api.github.com/users/makley-tibola-trichez");

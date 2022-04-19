@@ -3,7 +3,9 @@ export type ParseResponsetype = (response: Response) => {
   data: any;
 };
 
-export type ResponseType<ApiResponseType> = {
-  statusCode: number;
-  data: ApiResponseType;
-};
+export type ResponseType<ApiResponseType> =
+  | {
+      statusCode: number;
+      data: ApiResponseType;
+    }
+  | undefined;

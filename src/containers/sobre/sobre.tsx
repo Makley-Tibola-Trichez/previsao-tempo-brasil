@@ -10,7 +10,7 @@ import SobreType from "../../store/sobre/sobreSlice.types";
 import styles from "./sobre.styles";
 import useSobre from "./useSobre";
 
-const Sobre: React.FC<SobreType> = ({}) => {
+const Sobre: React.FC = () => {
   const { sobre, isLoading, abrirPerfilGithub } = useSobre();
 
   return (
