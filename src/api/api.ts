@@ -2,12 +2,11 @@ import { ParseResponse } from "./treatResponse";
 
 export default class Api {
   static fetchPrevisaoTempo(geocode: number) {
-    return apiRequest(`${geocode}`);
+    return apiRequest(`https://apiprevmet3.inmet.gov.br/previsao/${geocode}`);
   }
   static fetchCidadesEstado(geocode: number) {
-    // TODO: obter cidades do estado selecionado
     return apiRequest(
-      `https://servicodados.ibge.gov.br/api/v1/localidades/municipios/${geocode}`
+      `https://servicodados.ibge.gov.br/api/v1/localidades/estados/${geocode}/municipios`
     );
   }
   static fetchEstadosBrasil() {

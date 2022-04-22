@@ -12,7 +12,7 @@ web-build/
 
 yarn-error.log
 .vscode
-
+.idea
 
 # macOS
 .DS_Store

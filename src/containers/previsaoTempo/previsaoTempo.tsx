@@ -1,21 +1,23 @@
-import { Picker } from "@react-native-picker/picker";
 import * as React from "react";
-import { View } from "react-native";
 
 import Container from "../../components/container/container";
 import styles from "./previsaoTempo.styles";
 import Text from "../../components/text/text";
-import useCidadesEstados from "../../store/cidades/useCidadesEstados/useCidadesEstados";
+import OpcoesEstados from "./opcoesEstados/opcoesEstados";
+import OpcoesCidades from "./opcoesCidades/opcoesCidades";
+import CardPrevisaoTempo from "./cardPrevisaoTempo/cardPrevisaoTempo";
+import usePrevisaoTempo from "../../store/previsaoTempo/usePrevisaoTempo/usePrevisaoTempo";
 
 const PrevisaoTempo: React.FC = () => {
-  const [selectedValue, setSelectedValue] = React.useState("");
-  const [estado, setEstado] = React.useState<string | null>();
-
-  const { estados } = useCidadesEstados();
+  const [estado, setEstado] = React.useState<number | string>("0");
+  const [cidade, setCidade] = React.useState<number | string>("0");
+  const { previsao, setGeocode } = usePrevisaoTempo();
 
   React.useEffect(() => {
-    console.log(estados);
-  }, [estados]);
+    if (cidade) {
+      setGeocode(Number(cidade));
+    }
+  }, [cidade]);
 
   return (
     <Container>
@@ -23,19 +25,9 @@ const PrevisaoTempo: React.FC = () => {
         <Text type="title" style={styles.header}>
           Previsão do Tempo
         </Text>
-        {/* <Picker
-          placeholder="Selecione o estado"
-          selectedValue={selectedValue}
-          style={{ height: 50, width: 150 }}
-          onValueChange={(itemValue, itemIndex) => setSelectedValue(itemValue)}
-        >
-          <Picker.Item label="" value="" />
-          <Picker.Item label="Marau" value="" />
-          <Picker.Item label="Passo fundo" value="" />
-          <Picker.Item label="Carazinho" value="" />
-          <Picker.Item label="Erechim" value="" />
-          <Picker.Item label="Soledade" value="" />
-        </Picker> */}
+        <OpcoesEstados estado={estado} setEstado={setEstado} />
+        <OpcoesCidades cidade={cidade} setCidade={setCidade} estado={estado} />
+        <CardPrevisaoTempo previsao={previsao} />
       </>
     </Container>
   );

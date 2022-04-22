@@ -1,10 +1,10 @@
-import cidadesSlice from "./cidadesEstadosSlice";
+import cidadesSlice from "./cidadesSlice";
+
 import getCidades from "./thunks/getCidades";
-import getEstados from "./thunks/getEstados";
+
 const cidadesActions = {
   ...cidadesSlice.actions,
   getCidades,
-  getEstados,
 };
 
 export default cidadesActions;

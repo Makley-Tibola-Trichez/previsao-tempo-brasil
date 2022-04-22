@@ -4,7 +4,7 @@ import { EstadoResponseType } from "../../../api/api.types";
 import { ResponseType } from "../../../api/treatResponse.types";
 import { appActions } from "../../app/app.actions";
 import { ThunkStatefulAction } from "../../store";
-import cidadesSlice from "../cidadesEstadosSlice";
+import estadosSlice from "../estadosSlice";
 
 const getEstados = (): ThunkStatefulAction => async (dispatch: Dispatch) => {
   try {
@@ -19,7 +19,7 @@ const getEstados = (): ThunkStatefulAction => async (dispatch: Dispatch) => {
         label: estado.nome,
       }));
 
-      dispatch(cidadesSlice.actions.setEstados(_estados));
+      dispatch(estadosSlice.actions.setEstados(_estados));
 
       dispatch(appActions.isLoading(false));
     }

@@ -3,14 +3,12 @@ export type CidadeType = {
   geocode: number;
 };
 
-export type EstadoType = {
-  label: string;
-  id?: number;
+type CidadesType = {
+  cidades: CidadeType[];
 };
 
-type CidadesType = {
-  estados: EstadoType[];
-  cidades: CidadeType[];
+export type CidadeContextType = CidadesType & {
+  setGeocode: React.Dispatch<React.SetStateAction<number | null>>;
 };
 
 export default CidadesType;

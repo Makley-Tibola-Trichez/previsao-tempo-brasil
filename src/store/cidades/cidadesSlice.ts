@@ -1,18 +1,15 @@
 import { createSlice } from "@reduxjs/toolkit";
-import type CidadesType from "./cidadesEstadosSlice.types";
+import type { CidadeType } from "./cidadesSlice.types";
+import CidadesType from "./cidadesSlice.types";
 
 const initialState: CidadesType = {
-  estados: [],
-  cidades: [],
+  cidades: [] as CidadeType[],
 };
 
 const cidadesSlice = createSlice({
-  name: "app",
+  name: "cidades",
   initialState,
   reducers: {
-    setEstados: (state, action) => {
-      state.estados = action.payload;
-    },
     setCidades: (state, action) => {
       state.cidades = action.payload;
     },
