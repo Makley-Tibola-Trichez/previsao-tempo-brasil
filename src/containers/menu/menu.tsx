@@ -4,6 +4,7 @@ import { StyleSheet, Text, View } from "react-native";
 
 import Container from "../../components/container/container";
 import useNavigate from "../../hooks/useNavite";
+import styles from "./menu.styles";
 
 type MenuType = unknown;
 
@@ -17,21 +18,18 @@ const Menu: React.FC<MenuType> = () => {
   return (
     <Container>
       <View style={styles.spacing}>
-        <Button
-          title="Previsão do Tempo"
-          onPress={() => handleNavigate("PrevisaoTempo")}
-        />
-        <Button title="Sobre" onPress={() => handleNavigate("Sobre")} />
+        <View style={styles.button}>
+          <Button
+            title="Previsão do Tempo"
+            onPress={() => handleNavigate("PrevisaoTempo")}
+          />
+        </View>
+        <View style={styles.button}>
+          <Button title="Sobre" onPress={() => handleNavigate("Sobre")} />
+        </View>
       </View>
     </Container>
   );
 };
-
-const styles = StyleSheet.create({
-  spacing: {
-    flexDirection: "row",
-    justifyContent: "space-between",
-  },
-});
 
 export default Menu;

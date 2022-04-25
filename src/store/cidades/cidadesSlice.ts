@@ -13,6 +13,9 @@ const cidadesSlice = createSlice({
     setCidades: (state, action) => {
       state.cidades = action.payload;
     },
+    clearCidades: (state) => {
+      state.cidades = [];
+    },
   },
 });
 

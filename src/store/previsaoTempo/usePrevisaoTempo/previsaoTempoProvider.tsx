@@ -9,9 +9,10 @@ const PrevisaoTempoProvider: React.FC = ({ children }) => {
   const _dispatchRedux = useDispatch();
 
   React.useLayoutEffect(() => {
-    console.log(_geocode);
     if (_geocode) {
       _dispatchRedux(previsaoTempoActions.getPrevisaoTempo(_geocode));
+    } else {
+      _dispatchRedux(previsaoTempoActions.clearPrevisaoTempo());
     }
   }, [_geocode]);
 

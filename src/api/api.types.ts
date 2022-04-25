@@ -52,85 +52,39 @@ export type CidadeResponseType = {
 
 export type PrevisaoTempoResponseType = {
   [key: string]: {
-    [key: string]: {
-      manha: {
-        uf: string;
-        entidade: string;
-        resumo: string;
-        tempo: string;
-        temp_max: number;
-        temp_min: number;
-        dir_vento: string;
-        int_vento: string;
-        cod_icone: string;
-        icone: string;
-        dia_semana: string;
-        umidade_max: number;
-        umidade_min: number;
-        temp_max_tende: string;
-        cod_temp_max_tende_icone: string;
-        temp_max_tende_icone: string;
-        temp_min_tende: string;
-        cod_temp_min_tende_icone: string;
-        temp_min_tende_icone: string;
-        estacao: string;
-        hora: string;
-        nascer: string;
-        ocaso: string;
-        fonte: string;
-      };
-      tarde: {
-        uf: string;
-        entidade: string;
-        resumo: string;
-        tempo: string;
-        temp_max: number;
-        temp_min: number;
-        dir_vento: string;
-        int_vento: string;
-        cod_icone: string;
-        icone: string;
-        dia_semana: string;
-        umidade_max: number;
-        umidade_min: number;
-        temp_max_tende: string;
-        cod_temp_max_tende_icone: string;
-        temp_max_tende_icone: string;
-        temp_min_tende: string;
-        cod_temp_min_tende_icone: string;
-        temp_min_tende_icone: string;
-        estacao: string;
-        hora: string;
-        nascer: string;
-        ocaso: string;
-        fonte: string;
-      };
-      noite: {
-        uf: string;
-        entidade: string;
-        resumo: string;
-        tempo: string;
-        temp_max: number;
-        temp_min: number;
-        dir_vento: string;
-        int_vento: string;
-        cod_icone: string;
-        icone: string;
-        dia_semana: string;
-        umidade_max: number;
-        umidade_min: number;
-        temp_max_tende: string;
-        cod_temp_max_tende_icone: string;
-        temp_max_tende_icone: string;
-        temp_min_tende: string;
-        cod_temp_min_tende_icone: string;
-        temp_min_tende_icone: string;
-        estacao: string;
-        hora: string;
-        nascer: string;
-        ocaso: string;
-        fonte: string;
-      };
-    };
+    [key: string]: TurnosPrevisaotempo | DadosPrevisaoTempo;
   };
+};
+
+export type TurnosPrevisaotempo = {
+  manha: DadosPrevisaoTempo;
+  tarde: DadosPrevisaoTempo;
+  noite: DadosPrevisaoTempo;
+};
+
+export type DadosPrevisaoTempo = {
+  uf: string;
+  entidade: string;
+  resumo: string;
+  tempo: string;
+  temp_max: number;
+  temp_min: number;
+  dir_vento: string;
+  int_vento: string;
+  cod_icone: string;
+  icone: string;
+  dia_semana: string;
+  umidade_max: number;
+  umidade_min: number;
+  temp_max_tende: string;
+  cod_temp_max_tende_icone: string;
+  temp_max_tende_icone: string;
+  temp_min_tende: string;
+  cod_temp_min_tende_icone: string;
+  temp_min_tende_icone: string;
+  estacao: string;
+  hora: string;
+  nascer: string;
+  ocaso: string;
+  fonte: string;
 };

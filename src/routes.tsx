@@ -15,27 +15,25 @@ const Routes: React.FC = () => {
   return (
     <NavigationContainer>
       <Stack.Navigator>
-        <Stack.Group>
-          <Stack.Screen name="Menu" component={Menu} />
-          <Stack.Screen name="Sobre">
-            {() => (
-              <SobreProvider>
-                <Sobre />
-              </SobreProvider>
-            )}
-          </Stack.Screen>
-          <Stack.Screen name="PrevisaoTempo">
-            {() => (
-              <EstadosProvider>
-                <CidadesProvider>
-                  <PrevisaoTempoProvider>
-                    <PrevisaoTempo />
-                  </PrevisaoTempoProvider>
-                </CidadesProvider>
-              </EstadosProvider>
-            )}
-          </Stack.Screen>
-        </Stack.Group>
+        <Stack.Screen name="Menu" component={Menu} />
+        <Stack.Screen name="Sobre">
+          {() => (
+            <SobreProvider>
+              <Sobre />
+            </SobreProvider>
+          )}
+        </Stack.Screen>
+        <Stack.Screen name="PrevisaoTempo">
+          {() => (
+            <EstadosProvider>
+              <CidadesProvider>
+                <PrevisaoTempoProvider>
+                  <PrevisaoTempo />
+                </PrevisaoTempoProvider>
+              </CidadesProvider>
+            </EstadosProvider>
+          )}
+        </Stack.Screen>
       </Stack.Navigator>
     </NavigationContainer>
   );

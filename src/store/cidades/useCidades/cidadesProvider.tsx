@@ -14,7 +14,7 @@ const CidadesProvider: React.FC = ({ children }) => {
     if (geocode) {
       _dispatchRedux(cidadesActions.getCidades(geocode));
     } else {
-      _dispatchRedux(cidadesActions.setCidades([]));
+      _dispatchRedux(cidadesActions.clearCidades());
     }
   }, [geocode]);
 

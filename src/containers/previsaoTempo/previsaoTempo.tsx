@@ -27,7 +27,7 @@ const PrevisaoTempo: React.FC = () => {
         </Text>
         <OpcoesEstados estado={estado} setEstado={setEstado} />
         <OpcoesCidades cidade={cidade} setCidade={setCidade} estado={estado} />
-        <CardPrevisaoTempo previsao={previsao} />
+        {previsao && <CardPrevisaoTempo previsao={previsao} />}
       </>
     </Container>
   );

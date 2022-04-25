@@ -15,7 +15,9 @@ const getPrevisaoTempo =
       const result: ResponseType<PrevisaoTempoResponseType[]> =
         await Api.fetchPrevisaoTempo(geocode);
 
-      dispatch(previsaoTempoSlice.actions.setPrevisaoTempo(result));
+      if (result?.data) {
+        dispatch(previsaoTempoSlice.actions.setPrevisaoTempo(result.data));
+      }
 
       dispatch(appActions.isLoading(false));
     } catch (error) {

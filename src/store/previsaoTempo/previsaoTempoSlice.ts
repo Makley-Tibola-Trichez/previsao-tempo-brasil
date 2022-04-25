@@ -8,7 +8,10 @@ const previsaoTempoSlice = createSlice({
   initialState,
   reducers: {
     setPrevisaoTempo: (state, action) => {
-      state = action.payload;
+      state.previsao = action.payload;
+    },
+    clearPrevisaoTempo: (state) => {
+      state.previsao = null;
     },
   },
 });

@@ -14,7 +14,7 @@ const Text: React.FC<TextProps> = ({
 
   return (
     <RText style={[_textType, style]} onPress={onPress}>
-      {children}
+      <>{children}</>
     </RText>
   );
 };
